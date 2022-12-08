@@ -1,0 +1,68 @@
+/*Empieza estilo del footer*/
+footer {
+    width: 100%;
+    position: relative;
+    padding: 50px 0px;
+    background-image: url(../img/background-footer.svg);
+    background-size: cover;
+    margin-top: auto;
+}
+
+.container__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.box__footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    div {
+        padding-left: 100px;
+    }
+
+    a {
+        color: #7a7a7a;
+        font-weight: 600;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+.box__copyright {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+
+
+    p {
+        margin-top: 20px;
+        color: #7a7a7a;
+    }
+
+    hr {
+        border: none;
+        height: 1px;
+        background-color: #ab2def;
+    }
+}
+
+.rrss {
+    width: 20px;
+}
+
+
+
+
+/*Termina estilo del footer*/

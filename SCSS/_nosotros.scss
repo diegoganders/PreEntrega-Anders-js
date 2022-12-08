@@ -1,0 +1,70 @@
+/*Empieza estilo de la pag nosotros*/
+$fuentenosotros: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+@mixin bordes {
+    border-color: rgba(238, 237, 237, 0.714);
+    border-style: ridge;
+}
+
+.mainnosotros {
+    font-family: $fuentenosotros;
+    font-size: larger;
+
+    #about {
+        padding: 10px;
+    }
+}
+
+.mainnosotros {
+    padding: 10px 10px;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px;
+    grid-template-areas:
+        "detalleCostado detalle1 detalle1"
+        "detalleCostado detalle2 detalle2"
+        "detalleAbajo detalleAbajo detalleAbajo";
+}
+
+.detalleAbajo {
+    grid-area: detalleAbajo;
+    @include bordes;
+}
+
+.detalleCostado {
+    margin-left: 20px;
+    grid-area: detalleCostado;
+    background-image: url("../img/profilepic.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    border-radius: 10%;
+}
+
+.detalle1 {
+    grid-area: detalle1;
+    @include bordes;
+}
+
+.detalle2 {
+    grid-area: detalle2;
+    @include bordes;
+}
+
+
+@media screen and (max-width: 768px) {
+    .mainnosotros {
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        grid-template-areas:
+            "detalleCostado"
+            "detalle1"
+            "detalle2"
+            "detalleAbajo";
+    }
+}
+
+/*Termina estilo de la pag nosotros*/

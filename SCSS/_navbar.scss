@@ -1,0 +1,49 @@
+/*Empieza stilo del la barra*/
+$imgbarra:url("../img/barnav.jfif");
+
+
+nav {
+    background-image: $imgbarra;
+    background-size: cover;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dropdown-menu {
+    background-size: cover;
+    background-image: $imgbarra;
+}
+
+.logo {
+    width: 90px;
+    height: 90%;
+    border-radius: 10px;
+}
+
+.menu {
+    font-size: large;
+    padding: 10px;
+
+
+    a {
+        color: rgb(72, 70, 70);
+        text-decoration: none;
+        padding: 10px;
+        margin-right: 30px;
+    
+
+    &:hover {
+
+        color: rgb(72, 70, 70);
+        background-color: rgb(223, 209, 209);
+        border-radius: 10px;
+    }
+}
+}
+
+/*Termina estilo del la barra*/
