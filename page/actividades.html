@@ -61,30 +61,35 @@
 
   </header>
   <main>
-
-    <div class="contenedor">
-      <h1>
-        A continución usted deberá seleccionar si la imagen se corresponde a un intento de phshing:
-      </h1>
-      <div class="containter">
-        <div class="resultado" id="puntosobtenidos">
-          <h2>
-            Puntos obtenidos:
-          </h2>
-        </div>
-      </div>
-
-      <div class="divImg">
-        <a target="_blank" href="https://twitter.com/DiegoGAnders"> <img src="../img/Juego/phish1.PNG"
-            alt="drive.com"></a>
-
-
-      </div>
-      <div class="botones">
-        <button onclick="btnEsPish()" id="btnEsPish">phishing</button>
-        <button onclick="btnNoEsPish()" id="btnNoEsPish">legítimo</button>
-      </div>
+    <button onclick="jugar()" id="btnJugar">Jugar</button>
+    <br>
+    <h1 id="enunciado">
+    </h1>
+    <div id="puntosobtenidos">
+      <h2>
+        <label id="participante"></label>
+        <br>
+      </h2>
     </div>
+    <div class="contenedorActividades">
+
+  
+
+    <div class="divImg">
+      <a target="_blank" href="https://twitter.com/DiegoGAnders"> <img src="../img/Juego/phish1.PNG"
+          alt="drive.com"></a>
+
+
+    </div>
+  </div>
+    <div class="botones">
+      <button onclick="btnEsPish()" id="btnEsPish">phishing</button>
+      <button onclick="btnNoEsPish()" id="btnNoEsPish">legítimo</button>
+
+   
+  </div>
+    !-->
+
   </main>
   <footer>
 
@@ -119,5 +124,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
+<script src="../JavaScript/main.js"></script>
+<script src="../Clases/participante.js"></script>
+<script src="../clases/juego.js"></script>
 </html>

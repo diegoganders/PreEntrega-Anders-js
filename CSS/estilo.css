@@ -91,7 +91,8 @@ body {
   grid-auto-columns: 1fr;
   gap: 10px 10px;
   grid-auto-flow: row;
-  grid-template-areas: "sectionVideosVideo1 sectionVideosVideo2" "sectionVideosVideo3 sectionVideosVideo4"; }
+  grid-template-areas: "sectionVideosVideo1 sectionVideosVideo2"
+ "sectionVideosVideo3 sectionVideosVideo4"; }
 
 .sectionVideosVideo1 {
   grid-area: sectionVideosVideo1; }
@@ -110,7 +111,10 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 20px;
-    grid-template-areas: "sectionVideosVideo1" "sectionVideosVideo2" "sectionVideosVideo3" "sectionVideosVideo4"; }
+    grid-template-areas: "sectionVideosVideo1"
+ "sectionVideosVideo2"
+ "sectionVideosVideo3"
+ "sectionVideosVideo4"; }
   .mainindex .divmainindex {
     display: none; }
   .mainindex .divmainindex2 {
@@ -168,7 +172,9 @@ nav {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 5px;
-  grid-template-areas: "detalleCostado detalle1 detalle1" "detalleCostado detalle2 detalle2" "detalleAbajo detalleAbajo detalleAbajo"; }
+  grid-template-areas: "detalleCostado detalle1 detalle1"
+ "detalleCostado detalle2 detalle2"
+ "detalleAbajo detalleAbajo detalleAbajo"; }
 
 .detalleAbajo {
   grid-area: detalleAbajo;
@@ -198,7 +204,10 @@ nav {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 10px;
-    grid-template-areas: "detalleCostado" "detalle1" "detalle2" "detalleAbajo"; } }
+    grid-template-areas: "detalleCostado"
+ "detalle1"
+ "detalle2"
+ "detalleAbajo"; } }
 
 /*Termina estilo de la pag nosotros*/
 /*Empieza estilo de la pag servicios*/
@@ -224,6 +233,23 @@ nav {
   max-width: 1000px; }
 
 /*Termina estilo de la pag servicios*/
+
+
+/*Empieza estilo de la pag actividades*/
+
+.contenedorActividades{
+  display: flex;
+  justify-content: center;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+}
+
+/*termina estilo de la pag actividades*/
+
+
+
 /*Empieza estilo del footer*/
 footer {
   width: 100%;
