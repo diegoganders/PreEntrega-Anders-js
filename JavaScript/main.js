@@ -17,8 +17,6 @@ const imagenes = ['../img/Juego/phish1.PNG', '../img/Juego/phish2.PNG', '../img/
 let contador = 0;
 const juego1 = new Juego(imagenes, 0);
 
-
-
 const jugar = () => {
     contador = 0;
     Participante1 = new Participante(prompt("intrese su nombre:"), prompt("intrese su edad:"), prompt("intrese su género:"));
