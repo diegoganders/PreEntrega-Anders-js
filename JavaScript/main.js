@@ -75,11 +75,11 @@ const btnEsPish = () => {
             juego1.puntaje = juego1.puntaje + 1;
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + "<br>" + " Respuestas correctas: " + juego1.puntaje;
         }
-        contador = contador + 1;
+        contador++;
         console.log(contador);
     }
     else {
-        contador = contador + 1;
+      contador++;
         console.log(contador);
 
         if (contador === 5) {
@@ -103,11 +103,11 @@ const btnNoEsPish = () => {
             juego1.puntaje = juego1.puntaje + 1;
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + "<br>" + " Respuestas correctas: " + juego1.puntaje;
         }
-        contador = contador + 1;
+        contador++;
         console.log(contador);
     }
     else {
-        contador = contador + 1;
+        contador++;
         console.log(contador);
 
         if (contador === 5) {
