@@ -246,6 +246,22 @@ nav {
   justify-content: center;
 }
 
+.formularioJugador {
+  padding-top: 1px;
+  max-width: 1000px;
+  align-items: center;
+  justify-content: center !important; }
+  .formularioJugador div {
+    text-decoration: none;
+    padding: 10px;
+    padding-left: auto; }
+
+
+#botonesFormJugador {
+  text-align: center; }
+  #botonesFormJugador input {
+    margin-right: 50px; }
+
 /*termina estilo de la pag actividades*/
 
 

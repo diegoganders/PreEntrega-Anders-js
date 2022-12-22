@@ -60,24 +60,27 @@
     </nav>
 
   </header>
-  <main>
-    <button onclick="jugar()" id="btnJugar">Jugar</button>
+  <main class="row h-100 justify-content-md-center d-flex align-items-center">
+        <button class="btn btn-primary" onclick="jugar()" id="btnJugar">Jugar</button>
     <br>
 
-    <form id="formularioJugador" style="display: none;">
+    <form id="formularioJugador" style="display: none;" class="col-xl-3">
+      <div>   
       <br>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" id="nombre" class="form-control">
       <br><br>
-      <label for="edad">Edad:</label>
-      <input type="text" id="edad">
-      <br><br>
-
-      <label for="genero">Género:</label>
-      <input type="text" id="genero">
+      <label for="edad" class="form-label">Edad:</label>
+      <input type="text" id="edad" class="form-control">
       <br><br>
 
-      <button>Comenzar</button>
+      <label for="genero" class="form-label">Género:</label>
+      <input type="text" id="genero" class="form-control">
+      <br><br>
+      <div id="botonesFormJugador">
+      <button class="btn btn-light">Comenzar</button>
+      </div>
+    </div>
     </form>
     <h1 id="enunciado">
     </h1>
@@ -98,13 +101,10 @@
 
       </div>
     </div>
-    <div id="divBotones" style="display: none;">
-
-      <button onclick="btnEsPish()" id="btnEsPish">phishing</button>
-      <button onclick="btnNoEsPish()" id="btnNoEsPish">legítimo</button>
-      
-    </div>
-
+    <div id="divBotones" style="display: none; justify-items: center;">
+      <button class="btn btn-danger" onclick="btnEsPish()" id="btnEsPish">phishing</button>
+      <button class="btn btn-success" onclick="btnNoEsPish()" id="btnNoEsPish">legítimo</button>
+  </div>
 
   </main>
   <footer>
