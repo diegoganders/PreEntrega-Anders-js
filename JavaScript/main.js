@@ -1,3 +1,5 @@
+//Defino Clases
+
 class Juego {
     constructor(preguntas, puntaje) {
         this.preguntas = preguntas;
@@ -13,13 +15,30 @@ class Participante {
     }
 }
 
+//Defino variables
 const imagenes = ['../img/Juego/phish1.PNG', '../img/Juego/phish2.PNG', '../img/Juego/phish3.PNG', '../img/Juego/phish4.PNG'];
 let contador = 0;
 const juego1 = new Juego(imagenes, 0);
+const formulario = document.getElementById("formularioJugador");
+
 
 const jugar = () => {
+    document.getElementById('formularioJugador').style.display = "block";
+    document.getElementById('btnJugar').style.display = "none";
+
+}
+
+
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+    document.getElementById('formularioJugador').style.display = "none";
+
+    const nombre = document.getElementById("nombre");
+    const edad = document.getElementById("edad");
+    const genero = document.getElementById("genero");
     contador = 0;
-    Participante1 = new Participante(prompt("intrese su nombre:"), prompt("intrese su edad:"), prompt("intrese su género:"));
+    Participante1 = new Participante(nombre.value, edad.value, genero.value);
+    formulario.reset(); 
     console.log("Su nombre es: " + Participante1.nombre);
     console.log("Su edad es: " + Participante1.edad);
     console.log("Su genero es: " + Participante1.genero);
@@ -29,12 +48,12 @@ const jugar = () => {
     document.getElementById('divImg').innerHTML = '<img src="../img/Juego/phish1.PNG" />';
     document.getElementById('divBotones').style.display = "block";
     contador = contador + 1;
-    document.getElementById('btnJugar').style.display = "none";
     console.log("Hay un total de: " + imagenes.length + " preguntas")
     imagenes.forEach(function (elemento) {
         console.log(elemento);
     })
-}
+
+})
 
 
 
@@ -55,8 +74,8 @@ const btnEsPish = () => {
         console.log(contador);
 
         if (contador === 5) {
-            let puntajeTotal= 25 * juego1.puntaje;
-            document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " +Participante1.edad + " años, género: " + Participante1.genero +  "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
+            let puntajeTotal = 25 * juego1.puntaje;
+            document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
             document.getElementById('divBotones').style.display = "none";
             document.getElementById('divImg').style.display = "none";
             document.getElementById('enunciado').style.display = "none";
@@ -82,8 +101,8 @@ const btnNoEsPish = () => {
 
         if (contador === 5) {
             juego1.puntaje = juego1.puntaje + 1;
-            let puntajeTotal= 25 * juego1.puntaje;
-            document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " +Participante1.edad + " años, género: " + Participante1.genero +  "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
+            let puntajeTotal = 25 * juego1.puntaje;
+            document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
             document.getElementById('divBotones').style.display = "none";
             document.getElementById('divImg').style.display = "none";
             document.getElementById('enunciado').style.display = "none";
@@ -91,3 +110,19 @@ const btnNoEsPish = () => {
         }
     }
 }
+
+//Resgistro algunos eventos
+
+const nombre = document.getElementById("nombre");
+const edad = document.getElementById("edad");
+const genero = document.getElementById("genero");
+
+nombre.addEventListener("change", ()=>{
+    console.log("Se ingreso el siguiente texto en el campo 'nombre': " + nombre.value);
+})
+edad.addEventListener("change", ()=>{
+    console.log("Se ingreso el siguiente texto en el campo 'edad': " + edad.value);
+})
+genero.addEventListener("change", ()=>{
+    console.log("Se ingreso el siguiente texto en el campo 'género': " + genero.value);
+})

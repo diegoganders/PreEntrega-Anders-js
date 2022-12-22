@@ -15,6 +15,7 @@
 
   <title>Diego Anders | Actividades</title>
 </head>
+
 <body>
   <header>
 
@@ -62,6 +63,22 @@
   <main>
     <button onclick="jugar()" id="btnJugar">Jugar</button>
     <br>
+
+    <form id="formularioJugador" style="display: none;">
+      <br>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre">
+      <br><br>
+      <label for="edad">Edad:</label>
+      <input type="text" id="edad">
+      <br><br>
+
+      <label for="genero">Género:</label>
+      <input type="text" id="genero">
+      <br><br>
+
+      <button>Comenzar</button>
+    </form>
     <h1 id="enunciado">
     </h1>
     <div id="puntosobtenidos">
@@ -72,17 +89,17 @@
     </div>
     <div class="contenedorActividades">
 
-    <div id="divImg">
+      <div id="divImg">
 
 
 
+      </div>
     </div>
-  </div>
     <div id="divBotones" style="display: none;">
 
-      <button onclick="btnEsPish()" id="btnEsPish">phishing</button> 
+      <button onclick="btnEsPish()" id="btnEsPish">phishing</button>
       <button onclick="btnNoEsPish()" id="btnNoEsPish">legítimo</button>
-  </div>
+    </div>
 
 
   </main>
