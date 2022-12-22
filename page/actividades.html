@@ -60,27 +60,27 @@
     </nav>
 
   </header>
-  <main class="row h-100 justify-content-md-center d-flex align-items-center">
-        <button class="btn btn-primary" onclick="jugar()" id="btnJugar">Jugar</button>
+  <main class="row justify-content-md-center d-flex align-items-center">
+    <button class="btn btn-primary" onclick="jugar()" id="btnJugar">Jugar</button>
     <br>
 
     <form id="formularioJugador" style="display: none;" class="col-xl-3">
-      <div>   
-      <br>
-      <label for="nombre" class="form-label">Nombre:</label>
-      <input type="text" id="nombre" class="form-control">
-      <br><br>
-      <label for="edad" class="form-label">Edad:</label>
-      <input type="text" id="edad" class="form-control">
-      <br><br>
+      <div>
+        <br>
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" class="form-control">
+        <br><br>
+        <label for="edad" class="form-label">Edad:</label>
+        <input type="text" id="edad" class="form-control">
+        <br><br>
 
-      <label for="genero" class="form-label">Género:</label>
-      <input type="text" id="genero" class="form-control">
-      <br><br>
-      <div id="botonesFormJugador">
-      <button class="btn btn-light">Comenzar</button>
+        <label for="genero" class="form-label">Género:</label>
+        <input type="text" id="genero" class="form-control">
+        <br><br>
+        <div id="botonesFormJugador">
+          <button class="btn btn-light">Comenzar</button>
+        </div>
       </div>
-    </div>
     </form>
     <h1 id="enunciado">
     </h1>
@@ -101,10 +101,10 @@
 
       </div>
     </div>
-    <div id="divBotones" style="display: none; justify-items: center;">
+    <div id="divBotones" class=" test row h-100 justify-content-md-center d-flex align-items-center d-none">
       <button class="btn btn-danger" onclick="btnEsPish()" id="btnEsPish">phishing</button>
       <button class="btn btn-success" onclick="btnNoEsPish()" id="btnNoEsPish">legítimo</button>
-  </div>
+    </div>
 
   </main>
   <footer>

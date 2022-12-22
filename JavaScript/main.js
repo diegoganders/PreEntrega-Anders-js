@@ -46,7 +46,11 @@ formulario.addEventListener("submit", (e) => {
     console.log(juego1);
     console.log(Participante1);
     document.getElementById('divImg').innerHTML = '<img src="../img/Juego/phish1.PNG" />';
-    document.getElementById('divBotones').style.display = "block";
+    document.getElementById('divBotones').classList.remove('d-none');
+    document.getElementById('divBotones').classList.add('d-block');
+
+
+
     contador = contador + 1;
     console.log("Hay un total de: " + imagenes.length + " preguntas")
     imagenes.forEach(function (elemento) {
@@ -76,16 +80,15 @@ const btnEsPish = () => {
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + "<br>" + " Respuestas correctas: " + juego1.puntaje;
         }
         contador++;
-        console.log(contador);
     }
     else {
       contador++;
-        console.log(contador);
-
         if (contador === 5) {
             let puntajeTotal = 25 * juego1.puntaje;
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
             document.getElementById('divBotones').style.display = "none";
+            document.getElementById('divBotones').classList.remove('d-block');
+            document.getElementById('divBotones').classList.add('d-none');
             document.getElementById('divImg').style.display = "none";
             document.getElementById('enunciado').style.display = "none";
             document.getElementById('btnMostrarParticipante').style.display = "none";
@@ -103,23 +106,19 @@ const btnNoEsPish = () => {
             juego1.puntaje = juego1.puntaje + 1;
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + "<br>" + " Respuestas correctas: " + juego1.puntaje;
         }
-        contador++;
-        console.log(contador);
-    }
+        contador++;    }
     else {
         contador++;
-        console.log(contador);
-
         if (contador === 5) {
             juego1.puntaje = juego1.puntaje + 1;
             let puntajeTotal = 25 * juego1.puntaje;
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
             document.getElementById('divBotones').style.display = "none";
+            document.getElementById('divBotones').classList.remove('d-block');
+            document.getElementById('divBotones').classList.add('d-none');
             document.getElementById('divImg').style.display = "none";
             document.getElementById('enunciado').style.display = "none";
             document.getElementById('btnMostrarParticipante').style.display = "none";
-
-
         }
     }
 }
