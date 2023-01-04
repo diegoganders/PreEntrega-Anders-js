@@ -48,9 +48,6 @@ formulario.addEventListener("submit", (e) => {
     document.getElementById('divImg').innerHTML = '<img src="../img/Juego/phish1.PNG" />';
     document.getElementById('divBotones').classList.remove('d-none');
     document.getElementById('divBotones').classList.add('d-block');
-
-
-
     contador = contador + 1;
     console.log("Hay un total de: " + imagenes.length + " preguntas")
     imagenes.forEach(function (elemento) {
@@ -63,7 +60,7 @@ formulario.addEventListener("submit", (e) => {
     <br><br>
     `
     contenedorBotones.appendChild(card);
-    
+
     //Guardo al participante en el localStorage
     localStorage.setItem("participante", JSON.stringify(Participante1));
 
@@ -77,12 +74,41 @@ const btnEsPish = () => {
 
         if ((contador == 1) || (contador == 2) || (contador == 3)) {
             juego1.puntaje = juego1.puntaje + 1;
+            //Agrego toastify
+            Toastify({
+                text: "Respuesta correcta!",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "green",
+                },
+            }).showToast();
+
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + "<br>" + " Respuestas correctas: " + juego1.puntaje;
         }
         contador++;
     }
     else {
-      contador++;
+
+        contador++;
+        
+                //Agrego toastify
+                Toastify({
+                    text: "Respuesta incorrecta!",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "bottom",
+                    position: "right",
+                    stopOnFocus: true,
+                    style: {
+                        background: "red",
+                    },
+                }).showToast();
         if (contador === 5) {
             let puntajeTotal = 25 * juego1.puntaje;
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
@@ -94,6 +120,8 @@ const btnEsPish = () => {
             document.getElementById('btnMostrarParticipante').style.display = "none";
 
         }
+
+        
     }
 }
 
@@ -104,13 +132,42 @@ const btnNoEsPish = () => {
 
         if (contador == 4) {
             juego1.puntaje = juego1.puntaje + 1;
+
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + "<br>" + " Respuestas correctas: " + juego1.puntaje;
         }
-        contador++;    }
+        contador++;
+                //Agrego toastify
+                Toastify({
+                    text: "Respuesta incorrecta!",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "bottom",
+                    position: "right",
+                    stopOnFocus: true,
+                    style: {
+                        background: "red",
+                    },
+                }).showToast();
+    }
     else {
         contador++;
         if (contador === 5) {
             juego1.puntaje = juego1.puntaje + 1;
+                        //Agrego toastify
+                        Toastify({
+                            text: "Respuesta correcta!",
+                            duration: 3000,
+                            newWindow: true,
+                            close: true,
+                            gravity: "bottom",
+                            position: "right",
+                            stopOnFocus: true,
+                            style: {
+                                background: "green",
+                            },
+                        }).showToast();
+
             let puntajeTotal = 25 * juego1.puntaje;
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
             document.getElementById('divBotones').style.display = "none";
