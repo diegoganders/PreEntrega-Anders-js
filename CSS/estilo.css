@@ -240,8 +240,20 @@ nav {
 .contenedorActividades{
   display: flex;
   justify-content: center;
+  object-fit: cover;
+}
+
+.contenedorActividades img{
+    width: 100%;
+    height: auto;
 }
 .botones{
+  display: flex;
+  justify-content: center;
+}
+
+#puntosobtenidos{
+  margin-top: 100px;
   display: flex;
   justify-content: center;
 }
@@ -260,6 +272,8 @@ nav {
   text-align: center; }
   #botonesFormJugador input {
     margin-right: 50px; }
+
+
 
 /*termina estilo de la pag actividades*/
 
