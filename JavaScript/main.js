@@ -26,6 +26,12 @@ const jugar = () => {
     document.getElementById('btnJugar').style.display = "none";
 
 }
+const jugarDeNuevo = () => {
+    console.log("TEST")
+    window.location.reload()
+
+}
+
 
 //Evento submit (comenzar)
 formulario.addEventListener("submit", (e) => {
@@ -59,7 +65,8 @@ formulario.addEventListener("submit", (e) => {
     })
 
 
-    /*
+    /* En preentregas creaba un boton para mostrar por consola lo que recuperaba del local storage
+
     const contenedorBotones = document.getElementById("botonesParticipante");
     const card = document.createElement("div");
     card.innerHTML = `
@@ -75,8 +82,8 @@ formulario.addEventListener("submit", (e) => {
     const participantestorage = JSON.parse(localStorage.getItem("participante") || []);
     console.log(participantestorage.nombre || "No se cargo el nombre")
 
-    //Prueba de spread
-console.log(...imagenes)
+    //Prueba de spread con el array de imagenes
+    console.log(...imagenes)
 })
 
 
@@ -126,9 +133,29 @@ const btnEsPish = () => {
             let participantestorage = JSON.parse(localStorage.getItem("participante"));
 
             if (participantestorage.nombre) {
-                document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
+                document.getElementById("participante").style.display = "none";
+                document.getElementById('btnJugarDeNuevo').style.display = "block";
+
+                Swal.fire({
+                    title: "FIN DE LA ACTIVIDAD",
+                    text: "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + ". Puntos obtenidos: " + puntajeTotal + "%.  Respuestas correctas: " + juego1.puntaje,
+                    imageUrl: "https://cdn.drawception.com/drawings/LGVF84sogx.png",
+                    confirmButtonText: "Aceptar",
+                    background: "white",
+                    backdrop: "#D6EAF8"
+                })
             } else {
-                document.getElementById("participante").innerHTML = "Participante anónimo " + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
+                document.getElementById("participante").style.display = "none";
+                document.getElementById('btnJugarDeNuevo').style.display = "block";
+
+                Swal.fire({
+                    title: "FIN DE LA ACTIVIDAD",
+                    text: "Participante anónimo" + ". Puntos obtenidos: " + puntajeTotal + "%. Respuestas correctas: " + juego1.puntaje,
+                    imageUrl: "https://cdn.drawception.com/drawings/LGVF84sogx.png",
+                    confirmButtonText: "Aceptar",
+                    background: "white",
+                    backdrop: "#D6EAF8"
+                })
             }
             ocultarDivs();
 
@@ -187,10 +214,28 @@ const btnNoEsPish = () => {
             let participantestorage = JSON.parse(localStorage.getItem("participante"));
 
             if (participantestorage.nombre) {
-                document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
-            } else {
-                document.getElementById("participante").innerHTML = "Participante anónimo " + "<br>" + " Puntos obtenidos: " + puntajeTotal + "% <br> Respuestas correctas: " + juego1.puntaje;
-            }
+                document.getElementById("participante").style.display = "none";
+                document.getElementById('btnJugarDeNuevo').style.display = "block";
+
+                Swal.fire({
+                    title: "FIN DE LA ACTIVIDAD",
+                    text: "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + ". Puntos obtenidos: " + puntajeTotal + "%.  Respuestas correctas: " + juego1.puntaje,
+                    imageUrl: "https://cdn.drawception.com/drawings/LGVF84sogx.png",
+                    confirmButtonText: "Aceptar",
+                    background: "white",
+                    backdrop: "#D6EAF8"
+                })            } else {
+                document.getElementById("participante").style.display = "none";
+                document.getElementById('btnJugarDeNuevo').style.display = "block";
+
+                Swal.fire({
+                    title: "FIN DE LA ACTIVIDAD",
+                    text: "Participante anónimo" + ". Puntos obtenidos: " + puntajeTotal + "%. Respuestas correctas: " + juego1.puntaje,
+                    imageUrl: "https://cdn.drawception.com/drawings/LGVF84sogx.png",
+                    confirmButtonText: "Aceptar",
+                    background: "white",
+                    backdrop: "#D6EAF8"
+                })            }
 
             ocultarDivs();
         }
