@@ -52,7 +52,15 @@ formulario.addEventListener("submit", (e) => {
 
     //Genero el enunciado, la primera imagen y los botones para jugar
     document.getElementById("enunciado").innerText = "      A continución usted deberá seleccionar si la imagen se corresponde a un intento de phshing!"
-    document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre;
+
+    if (Participante1.nombre) {
+
+        document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre;
+    } else {
+        document.getElementById("participante").style.display = "none";
+    }
+
+
     console.log(juego1);
     console.log(Participante1);
     document.getElementById('divImg').innerHTML = '<img src="../img/Juego/phish1.PNG" />';
@@ -224,7 +232,8 @@ const btnNoEsPish = () => {
                     confirmButtonText: "Aceptar",
                     background: "white",
                     backdrop: "#D6EAF8"
-                })            } else {
+                })
+            } else {
                 document.getElementById("participante").style.display = "none";
                 document.getElementById('btnJugarDeNuevo').style.display = "block";
 
@@ -235,7 +244,8 @@ const btnNoEsPish = () => {
                     confirmButtonText: "Aceptar",
                     background: "white",
                     backdrop: "#D6EAF8"
-                })            }
+                })
+            }
 
             ocultarDivs();
         }
@@ -274,3 +284,21 @@ function ocultarDivs() {
     document.getElementById('divImg').style.display = "none";
     document.getElementById('enunciado').style.display = "none";
 }
+
+//Detecta inactividad de mouse y uso setTimeout
+let mouseSinMovimiento = null;
+let tiempoinacitvidad = 10000;
+document.addEventListener("mousemove", () => {
+    clearTimeout(mouseSinMovimiento);
+    mouseSinMovimiento = setTimeout(function () {
+
+        Swal.fire({
+            title: "¿Estás ahí?",
+            text: "Has estado inactivo por más de 10 segundos",
+            imageUrl: "https://images.emojiterra.com/google/noto-emoji/v2.038/share/231b.jpg",
+            confirmButtonText: "Aceptar",
+            background: "white",
+            backdrop: "black"
+        })
+    }, tiempoinacitvidad);
+});
