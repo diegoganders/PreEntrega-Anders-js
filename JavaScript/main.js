@@ -19,6 +19,10 @@ const imagenes = ['../img/Juego/phish1.PNG', '../img/Juego/phish2.PNG', '../img/
 let contador = 0;
 const juego1 = new Juego(imagenes, 0);
 const formulario = document.getElementById("formularioJugador");
+const url = "https://mocki.io/v1/39879d59-55a2-44ae-9d35-a887cd256978";
+let imgMayor3Respuestas = "";
+let imgMenor3Respuestas = "";
+let puntajeTotal = 0;
 
 //btn jugar
 const jugar = () => {
@@ -136,7 +140,7 @@ const btnEsPish = () => {
             },
         }).showToast();
         if (contador === 5) {
-            let puntajeTotal = 25 * juego1.puntaje;
+            puntajeTotal = 25 * juego1.puntaje;
             //me fijo si se ingreso un nombre para mostrar
             let participantestorage = JSON.parse(localStorage.getItem("participante"));
 
@@ -147,7 +151,7 @@ const btnEsPish = () => {
                 Swal.fire({
                     title: "FIN DE LA ACTIVIDAD",
                     text: "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + ". Puntos obtenidos: " + puntajeTotal + "%.  Respuestas correctas: " + juego1.puntaje,
-                    imageUrl: "https://cdn.drawception.com/drawings/LGVF84sogx.png",
+                    imageUrl: ImgFinDelJuego(),
                     confirmButtonText: "Aceptar",
                     background: "white",
                     backdrop: "#D6EAF8"
@@ -159,7 +163,7 @@ const btnEsPish = () => {
                 Swal.fire({
                     title: "FIN DE LA ACTIVIDAD",
                     text: "Participante anónimo" + ". Puntos obtenidos: " + puntajeTotal + "%. Respuestas correctas: " + juego1.puntaje,
-                    imageUrl: "https://cdn.drawception.com/drawings/LGVF84sogx.png",
+                    imageUrl: ImgFinDelJuego(),
                     confirmButtonText: "Aceptar",
                     background: "white",
                     backdrop: "#D6EAF8"
@@ -177,10 +181,8 @@ const btnEsPish = () => {
 const btnNoEsPish = () => {
     if (contador < 4) {
         document.getElementById('divImg').innerHTML = '<img src=' + "'" + juego1.preguntas[contador] + "' " + '/>';
-
         if (contador == 4) {
             juego1.puntaje = juego1.puntaje + 1;
-
             document.getElementById("participante").innerHTML = "Participante: " + Participante1.nombre + "<br>" + " Respuestas correctas: " + juego1.puntaje;
         }
         contador++;
@@ -215,20 +217,16 @@ const btnNoEsPish = () => {
                     background: "green",
                 },
             }).showToast();
-
-            let puntajeTotal = 25 * juego1.puntaje;
-
-            //me fijo si se ingreso un nombre para mostrar
+            puntajeTotal = 25 * juego1.puntaje;
+            //me fijo si se ingreso un nombre para mostrar (lo traigo desde el storage)
             let participantestorage = JSON.parse(localStorage.getItem("participante"));
-
             if (participantestorage.nombre) {
                 document.getElementById("participante").style.display = "none";
                 document.getElementById('btnJugarDeNuevo').style.display = "block";
-
                 Swal.fire({
                     title: "FIN DE LA ACTIVIDAD",
                     text: "Participante: " + Participante1.nombre + ", edad: " + Participante1.edad + " años, género: " + Participante1.genero + ". Puntos obtenidos: " + puntajeTotal + "%.  Respuestas correctas: " + juego1.puntaje,
-                    imageUrl: "https://cdn.drawception.com/drawings/LGVF84sogx.png",
+                    imageUrl: ImgFinDelJuego(),
                     confirmButtonText: "Aceptar",
                     background: "white",
                     backdrop: "#D6EAF8"
@@ -236,17 +234,15 @@ const btnNoEsPish = () => {
             } else {
                 document.getElementById("participante").style.display = "none";
                 document.getElementById('btnJugarDeNuevo').style.display = "block";
-
                 Swal.fire({
                     title: "FIN DE LA ACTIVIDAD",
                     text: "Participante anónimo" + ". Puntos obtenidos: " + puntajeTotal + "%. Respuestas correctas: " + juego1.puntaje,
-                    imageUrl: "https://cdn.drawception.com/drawings/LGVF84sogx.png",
+                    imageUrl: ImgFinDelJuego(),
                     confirmButtonText: "Aceptar",
                     background: "white",
                     backdrop: "#D6EAF8"
                 })
             }
-
             ocultarDivs();
         }
     }
@@ -302,3 +298,32 @@ document.addEventListener("mousemove", () => {
         })
     }, tiempoinacitvidad);
 });
+
+
+//Utiizo fetch para obtener las url de las imagenes que muestro al finalizar el juego. Las cargue en un mock (https://mocki.io/)
+fetch(url)
+    .then((resp) => resp.json())
+    .then((datos) => {
+        //pruebo que me las traiga bien y que accedo a la propiedad url
+        console.log(datos)
+        datos.forEach(dato => {
+            console.log("Url de donde saco la imagen del fin del juego: " + dato.url)
+        })
+        imgMenor3Respuestas = datos[1].url;
+        imgMayor3Respuestas = datos[0].url;
+
+    })
+
+//funcion para asignar la url que tengo que mostrar al finalizar el juego. Si se responden al menos 3 respuestas correctas ganó, sino gameover.
+function ImgFinDelJuego() {
+    if (puntajeTotal >= 75) {
+        return imgMenor3Respuestas;
+    } else {
+        return imgMayor3Respuestas;
+    }
+}
+
+
+
+
+
