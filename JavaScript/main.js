@@ -301,6 +301,7 @@ document.addEventListener("mousemove", () => {
 
 
 //Utiizo fetch para obtener las url de las imagenes que muestro al finalizar el juego. Las cargue en un mock (https://mocki.io/)
+
 fetch(url)
     .then((resp) => resp.json())
     .then((datos) => {
@@ -313,6 +314,10 @@ fetch(url)
         imgMayor3Respuestas = datos[0].url;
 
     })
+    .catch ((error)=>{
+          window.location.href = "../page/404.html";
+        })
+
 
 //funcion para asignar la url que tengo que mostrar al finalizar el juego. Si se responden al menos 3 respuestas correctas ganó, sino gameover.
 function ImgFinDelJuego() {
